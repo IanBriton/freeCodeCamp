@@ -41,20 +41,23 @@ const value = document.querySelector('.value-display')
 btns.forEach(btn => {
     btn.addEventListener('click', (event) => {
         const currentBtn = event.currentTarget.classList
-        if (currentBtn.contains('btn-decrease') || count < 0) {
+        if (currentBtn.contains('btn-decrease')) {
             count--
-            value.style.color = 'red'
-
         }
-        if (currentBtn.contains('btn-reset') || count === 0) {
+        if (currentBtn.contains('btn-reset')) {
             count = 0
-            value.style.color = 'black  '
-
         }
-        if (currentBtn.contains('btn-increase') || count > 0) {
+        if (currentBtn.contains('btn-increase')) {
             count++
+        }
+        if (count > 0) {
             value.style.color = "green"
-
+        }
+        if (count < 0) {
+            value.style.color = 'red'
+        }
+        if (count === 0) {
+            value.style.color = 'black  '
         }
         value.textContent = count
     })
